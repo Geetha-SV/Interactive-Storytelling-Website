@@ -33,7 +33,6 @@ h1 {
     display: flex;
     height: 100%;
     padding-top: 60px;
-    /* To make room for the fixed header */
 }
 
 .left-side {
@@ -63,9 +62,7 @@ h1 {
     text-align: center;
     animation: fadeInRight 1.5s ease-out;
     font-family: 'Montserrat', sans-serif;
-    /* Updated Font */
     font-size: 20px;
-    /* Adjusted font size */
     line-height: 1.6;
 }
 
@@ -127,4 +124,59 @@ h1 {
 button:hover {
     background-color: rgb(173, 33, 201);
     color: black;
+}
+
+
+/* Mobile Responsiveness */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+        padding: 5px 0;
+    }
+    .container {
+        flex-direction: column;
+        padding-top: 80px;
+        /* Adjusted padding for better alignment */
+    }
+    .left-side,
+    .right-side {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+    .left-side img {
+        width: 80%;
+    }
+    .right-side {
+        padding: 20px;
+        font-size: 18px;
+        /* Adjusted font size for mobile */
+    }
+    .button {
+        padding: 10px 15px;
+        font-size: 18px;
+        /* Adjusted button size for mobile */
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+        padding: 8px 0;
+    }
+    .container {
+        padding-top: 70px;
+    }
+    .right-side {
+        font-size: 16px;
+        /* Further reduced font size for small screens */
+    }
+    .button {
+        padding: 8px 12px;
+        font-size: 16px;
+        /* Further reduced button size */
+        margin: 5px 0;
+    }
 }
