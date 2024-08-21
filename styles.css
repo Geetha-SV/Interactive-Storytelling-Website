@@ -1,152 +1,142 @@
-    /* styles.css */
-    
-    body,
-    html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.image-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.image-background .overlay {
+    width: 100%;
+    height: 100%;
+    background: url('0.9.jpeg') no-repeat center center;
+    background-size: cover;
+    animation: zoomEffect 20s ease-in-out infinite;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.content {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+    color: white;
+    text-align: right;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    background-color: rgb(252, 254, 255);
+    color: rgb(3, 3, 3);
+    padding: 20px 32px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(83, 81, 80, 0.781);
+}
+
+@keyframes zoomEffect {
+    0% {
+        transform: scale(1);
     }
-    
-    .image-background {
-        position: fixed;
-        top: 30;
-        left: 30;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        /* Ensure the image is behind other content */
+    50% {
+        transform: scale(1.2);
     }
-    
-    .image-background .overlay {
-        width: 100%;
-        height: 100%;
-        background: url('0.9.jpeg') no-repeat center center;
-        background-size: cover;
-        /* Ensure the image covers the entire container */
-        animation: zoomEffect 20s ease-in-out infinite;
-        /* Apply the zoom effect animation */
+    100% {
+        transform: scale(1);
     }
-    
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        /* Dark background for better contrast */
-        color: white;
-        /* White text */
-        text-align: center;
-        padding: 10px 0;
-        z-index: 1;
-        /* Ensure header is above other content */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
     }
-    
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideIn 1s ease-in;
+}
+
+.delayed {
+    animation-delay: 1s;
+}
+
+.delayed2 {
+    animation-delay: 2s;
+}
+
+.delayed3 {
+    animation-delay: 3s;
+}
+
+@media (max-width: 768px) {
     header h1 {
-        font-size: 2em;
-        /* Adjust size as needed */
-        margin: 0;
+        font-size: 1.5em;
     }
-    
     .content {
-        position: fixed;
-        /* Fix the position relative to the viewport */
-        bottom: 20px;
-        /* Adjust the bottom position as needed */
-        right: 20px;
-        /* Align content to the right */
-        z-index: 1;
-        /* Ensure content is above the image */
-        color: white;
-        /* Adjust text color for better visibility */
-        text-align: right;
-        /* Right align the text */
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.5);
-        /* Add background color with transparency for better readability */
-        border-radius: 10px;
-        /* Optional: Add rounded corners */
-        box-shadow: 0cqi;
-    }
-    
-    @keyframes zoomEffect {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.2);
-            /* Adjust scale as needed */
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
-    
-    @keyframes slideIn {
-        from {
-            transform: translateY(20px);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-    
-    .fade-in {
-        animation: fadeIn 1s ease-in;
-    }
-    
-    .slide-in {
-        animation: slideIn 1s ease-in;
-    }
-    
-    .delayed {
-        animation-delay: 1s;
-        /* Adjust as needed */
-    }
-    
-    .delayed2 {
-        animation-delay: 2s;
-        /* Adjust as needed */
-    }
-    
-    .delayed3 {
-        animation-delay: 3s;
-        /* Adjust as needed */
-    }
-    
-    button {
-        background-color: rgb(252, 254, 255);
-        color: rgb(3, 3, 3);
-        padding: 20px 32px;
+        bottom: 10px;
+        right: 10px;
+        padding: 15px;
         text-align: center;
+        /* Center the text on smaller screens */
     }
-    
-    button:hover {
-        background-color: rgba(83, 81, 80, 0.781);
+    button {
+        padding: 15px 25px;
+        font-size: 16px;
     }
-    
-    @media (max-width: 600px) {
-        .content {
-            bottom: 10px;
-            /* Adjust the bottom position for smaller screens */
-            right: 10px;
-            /* Adjust the right position for smaller screens */
-            padding: 10px;
-            /* Adjust padding for smaller screens */
-        }
-        .tagline {
-            font-size: 14px;
-            /* Adjust font size for smaller screens */
-        }
-        button {
-            padding: 10px 20px;
-            /* Adjust button padding for smaller screens */
-            font-size: 14px;
-            /* Adjust button font size for smaller screens */
-        }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2em;
+        padding: 8px 0;
     }
+    .content {
+        bottom: 5px;
+        right: 5px;
+        padding: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
